@@ -1,27 +1,19 @@
 // eslint-disable-next-line
-import React, { useRef } from 'react';
-import { Button, Alert } from 'antd';
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './Pages/Home';
 import './App.css';
 
-function App() {
-  const btnElement = useRef(null);
-
-  console.log(process.env);
-
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div>
+      <Router>
         <div>
-          <Alert message={process.env.NODE_ENV} type="success" />
-          <Button ref={btnElement} type="primary">
-            Button {process.env.REACT_APP_API_KEY}
-          </Button>
+          <Route exact path="/" component={Home} />
         </div>
-      </header>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
