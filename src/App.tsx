@@ -14,9 +14,9 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <div>
-          <Alert message="Success Text" type="success" />
+          <Alert message={process.env.NODE_ENV} type="success" />
           <Button ref={btnElement} type="primary">
-            Button Ant Design
+            Button {process.env.REACT_APP_API_KEY}
           </Button>
         </div>
       </header>

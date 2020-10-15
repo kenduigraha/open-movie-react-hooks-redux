@@ -9,14 +9,9 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    env:
-      CI: true
     steps:
       - uses: actions/checkout@v2
-      - env:
-        REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
-        REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
-      - run: yarn && yarn test && yarn isready
+      - run: touch .env && cp .env.example .env && yarn && yarn test -u && yarn isready
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
