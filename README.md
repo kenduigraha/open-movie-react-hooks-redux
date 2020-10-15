@@ -22,4 +22,4 @@ Running unit testing
 
 ## Link Production
 
-You can access this project in [Link Production(https://open-movie-react-hooks-redux.web.app/).
+You can access this project in [Link Production](https://open-movie-react-hooks-redux.web.app/).
