@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Pages/Home';
+import DetailMovie from './Pages/DetailMovie';
 import './App.css';
 
 const App: React.FC = () => {
@@ -10,6 +11,7 @@ const App: React.FC = () => {
       <Router>
         <div>
           <Route exact path="/" component={Home} />
+          <Route exact path="/movie/:id" component={DetailMovie} />
         </div>
       </Router>
     </div>

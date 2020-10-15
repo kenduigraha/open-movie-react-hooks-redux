@@ -1,5 +1,6 @@
 // eslint-disable-next-line
 import React, { PureComponent } from 'react';
+import { Link } from 'react-router-dom';
 import Movie, { IDataMovie } from './Movie';
 
 interface IPropsListMovies {
@@ -67,7 +68,12 @@ class ListMovies extends PureComponent<IPropsListMovies> {
     return (
       <div id="content">
         {movies.map((movie: IDataMovie, index: number) => (
-          <Movie key={`${movie.imdbID}-${movie.Title}`} movie={movie} />
+          <Link
+            to={`/movie/${movie.imdbID}`}
+            key={`${movie.imdbID}-${movie.Title}`}
+          >
+            <Movie movie={movie} />
+          </Link>
         ))}
       </div>
     );
