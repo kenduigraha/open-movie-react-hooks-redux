@@ -1,9 +1,7 @@
 // eslint-disable-next-line
 import React from 'react';
 import PopOverTitle from './PopOverTitle';
-
-const DEFAULT_PLACEHOLDER_IMAGE =
-  'https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg';
+import ModalMovie from './ModalMovie';
 
 export interface IDataMovie {
   Title: string;
@@ -15,24 +13,20 @@ export interface IDataMovie {
 
 export interface IPropsMovie {
   movie: IDataMovie;
+  isDetailPage: boolean;
 }
 
-const Movie = ({ movie }: IPropsMovie) => {
-  const poster =
-    movie.Poster === 'N/A' ? DEFAULT_PLACEHOLDER_IMAGE : movie.Poster;
+const Movie = ({ movie, isDetailPage }: IPropsMovie) => {
   return (
     <div className="movie">
-      <PopOverTitle movie={movie}>
-        <h2>{movie.Title}</h2>
-      </PopOverTitle>
+      {!isDetailPage && (
+        <PopOverTitle movie={movie}>
+          <h2>{movie.Title}</h2>
+        </PopOverTitle>
+      )}
 
-      <div>
-        <img
-          width="200"
-          alt={`The movie titled: ${movie.Title}`}
-          src={poster}
-        />
-      </div>
+      <ModalMovie movie={movie} />
+
       <p>({movie.Year})</p>
     </div>
   );

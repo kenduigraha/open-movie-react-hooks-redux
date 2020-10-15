@@ -61,7 +61,11 @@ class ListMovies extends PureComponent<IPropsListMovies> {
     return (
       <div id="content">
         {movies.map((movie: IDataMovie) => (
-          <Movie movie={movie} key={`${movie.imdbID}-${movie.Title}`} />
+          <Movie
+            movie={movie}
+            key={`${movie.imdbID}-${movie.Title}`}
+            isDetailPage={false}
+          />
         ))}
       </div>
     );

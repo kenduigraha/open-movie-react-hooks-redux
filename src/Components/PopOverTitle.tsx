@@ -3,7 +3,13 @@ import React, { useState } from 'react';
 import { Popover } from 'antd';
 import { Link } from 'react-router-dom';
 
-import { IDataMovie } from './Movie';
+interface IDataMovie {
+  Title: string;
+  Year: string;
+  imdbID: string;
+  Type: string;
+  Poster: string;
+}
 
 interface IPopOverProps {
   children: React.ReactNode;
@@ -18,6 +24,7 @@ const PopOverTitle: React.FC<IPopOverProps> = (props: IPopOverProps) => {
   };
 
   const { children, movie } = props;
+
   const hoverContent = (
     <div>
       Click <Link to={`/movie/${movie.imdbID}`}>here</Link> to detail page
