@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
     "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
-    "isready": "npm run format && npm run lint && npm run build"
+    "isready": "yarn format && yarn lint && yarn build"
   },
   "eslintConfig": {
     "extends": "react-app"
