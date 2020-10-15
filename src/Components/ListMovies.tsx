@@ -1,6 +1,5 @@
 // eslint-disable-next-line
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
 import Movie, { IDataMovie } from './Movie';
 
 interface IPropsListMovies {
@@ -18,12 +17,6 @@ class ListMovies extends PureComponent<IPropsListMovies> {
   }
 
   componentDidMount() {
-    document.addEventListener('scroll', this.trackScrolling);
-  }
-
-  // add event listener scrolling when there's new Props
-  // eslint-disable-next-line
-  componentWillReceiveProps(nextProps: any) {
     document.addEventListener('scroll', this.trackScrolling);
   }
 
@@ -67,13 +60,8 @@ class ListMovies extends PureComponent<IPropsListMovies> {
     const { movies } = this.props;
     return (
       <div id="content">
-        {movies.map((movie: IDataMovie, index: number) => (
-          <Link
-            to={`/movie/${movie.imdbID}`}
-            key={`${movie.imdbID}-${movie.Title}`}
-          >
-            <Movie movie={movie} />
-          </Link>
+        {movies.map((movie: IDataMovie) => (
+          <Movie movie={movie} key={`${movie.imdbID}-${movie.Title}`} />
         ))}
       </div>
     );

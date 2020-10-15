@@ -3,7 +3,6 @@ import React, { useReducer, useEffect, useState } from 'react';
 import axios from 'axios';
 
 import Header from '../Components/Header';
-// import Movie, { IDataMovie } from '../Components/Movie';
 import ListMovies from '../Components/ListMovies';
 import spinner from '../assets/ajax-loader.gif';
 import Search from '../Components/Search';
@@ -28,6 +27,10 @@ const App = () => {
   const [state, dispatch] = useReducer(omdbReducer, initialState);
 
   useEffect(() => {
+    dispatch({
+      type: SEARCH_MOVIES_REQUEST,
+    });
+
     axios
       .get(
         `${MOVIE_API_URL}&s=${DEFAULT_SEARCH_VALUE}&page=${DEFAULT_FIRST_PAGE}`,
