@@ -42,11 +42,13 @@ export const omdbReducer = (state = initialState, action: any) => {
         errorMessage: null,
       };
     case SEARCH_MOVIES_SUCCESS:
-      console.log('sukses');
       return {
         ...state,
         loading: false,
-        movies: action.payload,
+        movies:
+          state.movies.length === 1
+            ? action.payload
+            : state.movies.concat(action.payload),
       };
     case SEARCH_MOVIES_FAILURE:
       return {

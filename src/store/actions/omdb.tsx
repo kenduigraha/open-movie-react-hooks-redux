@@ -3,7 +3,6 @@ import { getMovies, IParamsListMovies } from '../../Services/omdb';
 import { InterfaceInitialState } from '../reducer/omdbReducer';
 
 const receiveMovies = (movies: InterfaceInitialState) => {
-  console.log('SEARCH_MOVIES_REQUEST');
   return {
     type: SEARCH_MOVIES_REQUEST,
     movies,
