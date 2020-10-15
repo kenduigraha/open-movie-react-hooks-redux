@@ -13,10 +13,10 @@ jobs:
       CI: true
     steps:
       - uses: actions/checkout@v2
+      - run: yarn && yarn test && yarn isready
       - env:
         REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
         REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
-      - run: yarn && yarn test && yarn isready
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
