@@ -7,6 +7,8 @@ import './App.css';
 function App() {
   const btnElement = useRef(null);
 
+  console.log(process.env);
+
   return (
     <div className="App">
       <header className="App-header">
