@@ -14,8 +14,7 @@ interface IModalMovieProps {
   movie: IDataMovie;
 }
 
-const DEFAULT_PLACEHOLDER_IMAGE =
-  'https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg';
+const IMAGE_NOT_FOUND = 'https://cdn.browshot.com/static/images/not-found.png';
 
 const ModalMovie: React.FC<IModalMovieProps> = (props: IModalMovieProps) => {
   const [visible, isVisible] = useState(false);
@@ -40,8 +39,7 @@ const ModalMovie: React.FC<IModalMovieProps> = (props: IModalMovieProps) => {
 
   const { movie } = props;
 
-  const poster =
-    movie.Poster === 'N/A' ? DEFAULT_PLACEHOLDER_IMAGE : movie.Poster;
+  const poster = movie.Poster === 'N/A' ? IMAGE_NOT_FOUND : movie.Poster;
 
   return (
     <>

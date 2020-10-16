@@ -107,7 +107,7 @@ const App = () => {
       <div className="m-container">
         <Header text="Open Movie React Redux" />
 
-        <Search search={search} currPage={currPage} />
+        <Search search={search} setCurrPage={setCurrPage} />
 
         <p className="App-intro">search all movies you like</p>
 

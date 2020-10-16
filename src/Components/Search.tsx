@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 
 interface IPropsSearch {
   search: Function;
-  currPage: number;
+  setCurrPage: Function;
 }
 
-const Search = ({ search, currPage }: IPropsSearch) => {
+const Search = ({ search, setCurrPage }: IPropsSearch) => {
   const [searchValue, setSearchValue] = useState('');
 
   const handleSearchInputChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,6 +20,8 @@ const Search = ({ search, currPage }: IPropsSearch) => {
   const callSearchFunction = (e: React.MouseEvent<HTMLInputElement>) => {
     e.preventDefault();
     search(searchValue, 1);
+    // set curr Page to default 1
+    setCurrPage(1);
     resetInputField();
   };
 
