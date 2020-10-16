@@ -45,13 +45,17 @@ const ModalMovie: React.FC<IModalMovieProps> = (props: IModalMovieProps) => {
 
   return (
     <>
-      <img
-        width="200"
-        alt={`The movie titled: ${movie.Title}`}
-        src={poster}
+      <div
+        role="presentation"
         onClick={(e) => showModal(e)}
         onKeyPress={(e) => onKeyPress(e)}
-      />
+      >
+        <img
+          width="200"
+          alt={`The movie titled: ${movie.Title}`}
+          src={poster}
+        />
+      </div>
       <Modal
         title={`${movie.Title} - ${movie.Year}`}
         visible={visible}
