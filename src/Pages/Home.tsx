@@ -26,6 +26,8 @@ const App = () => {
   const [currSearchValue, setCurrSearchValue] = useState(DEFAULT_SEARCH_VALUE);
   const [state, dispatch] = useReducer(omdbReducer, initialState);
 
+  const { movies, errorMessage, loading } = state;
+
   useEffect(() => {
     dispatch({
       type: SEARCH_MOVIES_REQUEST,
@@ -43,7 +45,11 @@ const App = () => {
       });
   }, []);
 
-  const search = (searchValue: string, pageSearched: number) => {
+  const search = (
+    searchValue: string,
+    pageSearched: number,
+    isInfinity: boolean = false,
+  ) => {
     dispatch({
       type: SEARCH_MOVIES_REQUEST,
     });
@@ -53,10 +59,18 @@ const App = () => {
     ).then((jsonResponse) => {
       if (jsonResponse.data.Response === 'True') {
         setCurrSearchValue(searchValue);
+        const newData = jsonResponse.data.Search;
+        const payload = isInfinity ? movies.concat(newData) : newData;
 
         dispatch({
           type: SEARCH_MOVIES_SUCCESS,
-          payload: jsonResponse.data.Search,
+          payload,
+        });
+      } else if (movies.length > 0) {
+        //   condition if all data has already scrolled
+        dispatch({
+          type: SEARCH_MOVIES_SUCCESS,
+          payload: movies,
         });
       } else {
         dispatch({
@@ -72,10 +86,8 @@ const App = () => {
     setCurrPage(nextPage);
 
     // hit API again for next page
-    search(currSearchValue, nextPage);
+    search(currSearchValue, nextPage, true);
   };
-
-  const { movies, errorMessage, loading } = state;
 
   const retrievedMovies = () => {
     if (loading && !errorMessage && movies.length === 1) {

@@ -20,6 +20,12 @@ class ListMovies extends PureComponent<IPropsListMovies> {
     document.addEventListener('scroll', this.trackScrolling);
   }
 
+  // add event listener scrolling when there's new Props
+  // eslint-disable-next-line
+  componentWillReceiveProps(nextProps: any) {
+    document.addEventListener('scroll', this.trackScrolling);
+  }
+
   /**
    * remove event listener scroll
    */

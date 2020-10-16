@@ -51,10 +51,10 @@ const DetailMovieComponent: React.FC<IDetailMovieProps> = (
         </Col>
       </Row>
       <Row gutter={[8, 8]} justify="start" align="middle">
-        <Col span={8}>
+        <Col span={8} md={12} xs={24}>
           <Movie movie={movieDetail} isDetailPage={true} />
         </Col>
-        <Col span={16}>
+        <Col span={16} md={12} xs={24}>
           <Row>
             <Col span={24}>
               <Title mark>Rating</Title>

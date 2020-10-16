@@ -45,10 +45,7 @@ export const omdbReducer = (state = initialState, action: any) => {
       return {
         ...state,
         loading: false,
-        movies:
-          state.movies.length === 1
-            ? action.payload
-            : state.movies.concat(action.payload),
+        movies: action.payload,
       };
     case SEARCH_MOVIES_FAILURE:
       return {
