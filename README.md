@@ -3,7 +3,7 @@
 ## Setups
 
 1. Install Node.js LTS 12.19.0
-2. Install prettier globally to use comman `yarn format`
+2. Install prettier globally to use command `yarn format`
 3. Clone this repository
 4. Create file .env and copy from .env.example `touch .env && cp .env.example .env`
 5. Running unit testing `yarn test`
